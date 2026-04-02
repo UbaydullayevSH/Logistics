@@ -46,7 +46,7 @@ a{
   background: url("../../assets/jpg/Background_hero.jpg") no-repeat center / cover;
   padding: 40px 20px;
   text-align: center;
-  padding-top: 70px;
+  padding-top: 100px;
 }
 
 .hero_title {
@@ -995,13 +995,13 @@ a{
     padding: 10px;
     flex-direction: column;
     row-gap: 12px;
-    width: 100%;
+    width: 60%;
     margin: 0 auto;
     padding-top: 30px;
   }
 
   .request__wrapper {
-    height: 570px;
+    height: 600px;
   }
 
   .request_warning {
@@ -1013,13 +1013,13 @@ a{
 
 @media(max-width:768px) {
   .request__wrapper {
-    height: 580px;
+    height: 600px;
   }
 }
 
 @media(max-width:324px) {
   .request__bottom {
-    width: 100%;
+    width: 80%;
   }
 
   .request_warning {

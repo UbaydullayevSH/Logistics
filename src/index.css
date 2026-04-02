@@ -69,9 +69,17 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
-
-html {
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0d0d0d;
+  /* твой общий фон */
+  font-family: sans-serif;
+  /* необязательно, но удобно */
   scroll-behavior: smooth;
-  background: #000;
-
+  /* margin-top: 80px; */
+  /* height: 100vh; */
 }
+
+body {}
