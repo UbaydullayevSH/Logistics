@@ -71,10 +71,7 @@ button:focus-visible {
 } */
 
 html {
-  scroll-behavior: smooth; 
-background: #292929;
-}
+  scroll-behavior: smooth;
+  background: #000;
 
-.main{
-  width: 100%;
 }
