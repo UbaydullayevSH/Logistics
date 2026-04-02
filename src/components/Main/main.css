@@ -260,6 +260,9 @@ a{
   animation: spinY 8s linear infinite;
 }
 
+
+
+
 @keyframes spinY {
   0% {
     transform: rotateY(0deg) scale(1);
@@ -990,13 +993,13 @@ a{
     padding: 10px;
     flex-direction: column;
     row-gap: 12px;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     padding-top: 30px;
   }
 
   .request__wrapper {
-    height: 550px;
+    height: 570px;
   }
 
   .request_warning {
@@ -1008,7 +1011,7 @@ a{
 
 @media(max-width:768px) {
   .request__wrapper {
-    height: 575px;
+    height: 580px;
   }
 }
 

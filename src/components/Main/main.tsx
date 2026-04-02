@@ -693,7 +693,7 @@ const handlePrev = () => {
               <i className="fa-solid fa-chevron-left"></i>
             </button>
 
-            {/* ✅ ВАЖНО: добавили viewport */}
+            
             <div className="reviews__viewport">
               <div
                 className="carousel"
