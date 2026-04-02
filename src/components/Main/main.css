@@ -359,7 +359,10 @@ a{
   .packing {
     display: flex;
     flex-wrap: wrap;
-    width: 95%;
+    width: 85%;
+    justify-content: center;
+    margin: 0 auto;
+   
   }
 
   .luggage_title {
@@ -368,11 +371,19 @@ a{
 
 }
 
-@media(max-width:324px) {
+@media(max-width:450px) {
   .title__box_2 {
     position: relative;
     bottom: 30px;
     left: 50px;
+  }
+
+  .packing{
+    width: 80%;
+  }
+
+  .packing_title{
+    padding-bottom: 200px;
   }
 }
 
@@ -1041,7 +1052,7 @@ a{
 }
 
 .reviews__wrapper_card {
-  flex: 0 0 calc((100% - 50px) / 3); 
+  flex: 0 0 calc((100% - 40px) / 3); 
   border-radius: 10px;
   border: 1px solid gray;
   padding: 10px;
@@ -1081,7 +1092,7 @@ a{
 
 @media (max-width: 1024px) {
   .reviews__wrapper_card {
-    flex: 0 0 calc((100% - 35px) / 2);
+    flex: 0 0 calc((100% - 40px) / 2);
   }
 }
 
@@ -1095,7 +1106,7 @@ a{
   }
 
   .reviews__wrapper_card {
-    flex: 0 0 98.5%;
+    flex: 0 0 98%;
   }
 
   .reviews_btn {
@@ -1105,9 +1116,9 @@ a{
 }
 
 
-@media(max-width:324px){
+@media(max-width:400px){
   .reviews__wrapper_card{
-    flex: 0 0 25%;
+    flex: 0 0 96.5%;
   }
 }
 

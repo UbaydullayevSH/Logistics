@@ -55,7 +55,7 @@ export default function Main() {
   const { t } = useTranslation();
 
   // Carousel 
-  const VISIBLE = 3;
+
 
 
 
@@ -66,31 +66,58 @@ export default function Main() {
   const [total, setTotal] = useState(0);
   const [transition, setTransition] = useState(true);
 
+
+  const [visible, setVisible] = useState(3);
+  useEffect(() => {
+    const updateVisible = () => {
+      if (window.innerWidth <= 600) {
+        setVisible(1);
+      } else if (window.innerWidth <= 1024) {
+        setVisible(2);
+      } else {
+        setVisible(3);
+      }
+    };
+
+    updateVisible();
+    window.addEventListener("resize", updateVisible);
+
+    return () => window.removeEventListener("resize", updateVisible);
+  }, []);
+
+
   useEffect(() => {
     if (carouselRef.current) {
       setTotal(carouselRef.current.children.length);
     }
   }, []);
 
-  const handleNext = () => {
-    if (index < total - VISIBLE) {
-      setIndex(index + 1);
+const handleNext = () => {
+  setIndex((prev) => {
+    if (prev < total - visible) {
+      return prev + 1;
     } else {
-      // 👉 дошли до конца → возвращаемся в начало
       setTransition(false);
-      setIndex(0);
+      return 0;
     }
-  };
+  });
+};
 
-  const handlePrev = () => {
-    if (index > 0) {
-      setIndex(index - 1);
+  useEffect(() => {
+  setIndex(0);
+}, [visible]);
+
+
+const handlePrev = () => {
+  setIndex((prev) => {
+    if (prev > 0) {
+      return prev - 1;
     } else {
-      // 👉 из начала → в конец
       setTransition(false);
-      setIndex(total - VISIBLE);
+      return total - visible;
     }
-  };
+  });
+};
 
   // 👉 возвращаем анимацию после reset
   useEffect(() => {
@@ -120,39 +147,39 @@ export default function Main() {
   const productData = [
     {
       question: t("product.list_1"),
-      answer:t("product.answer_1").split("\n").map((line, index) => (
-              <React.Fragment key={index}>
-                {line}
-                <br />
-              </React.Fragment>
-            )) 
+      answer: t("product.answer_1").split("\n").map((line, index) => (
+        <React.Fragment key={index}>
+          {line}
+          <br />
+        </React.Fragment>
+      ))
     },
     {
       question: t("product.list_2"),
-      answer:t("product.answer_2").split("\n").map((line, index) => (
-              <React.Fragment key={index}>
-                {line}
-                <br />
-              </React.Fragment>
-            ))  
+      answer: t("product.answer_2").split("\n").map((line, index) => (
+        <React.Fragment key={index}>
+          {line}
+          <br />
+        </React.Fragment>
+      ))
     },
     {
       question: t("product.list_3"),
-      answer:t("product.answer_3").split("\n").map((line, index) => (
-              <React.Fragment key={index}>
-                {line}
-                <br />
-              </React.Fragment>
-            )) 
-          },
-          {
+      answer: t("product.answer_3").split("\n").map((line, index) => (
+        <React.Fragment key={index}>
+          {line}
+          <br />
+        </React.Fragment>
+      ))
+    },
+    {
       question: t("product.list_4"),
-       answer:t("product.answer_4").split("\n").map((line, index) => (
-              <React.Fragment key={index}>
-                {line}
-                <br />
-              </React.Fragment>
-            ))  
+      answer: t("product.answer_4").split("\n").map((line, index) => (
+        <React.Fragment key={index}>
+          {line}
+          <br />
+        </React.Fragment>
+      ))
     }
   ];
 
@@ -672,10 +699,8 @@ export default function Main() {
                 className="carousel"
                 ref={carouselRef}
                 style={{
-                  transform: `translateX(-${index * (100 / VISIBLE)}%)`,
-                  transition: transition
-                    ? "transform 0.7s cubic-bezier(0.65, 0, 0.35, 1)"
-                    : "none",
+                  transform: `translateX(-${index * (100 / visible)}%)`,
+                  transition: transition ? "transform 0.5s ease" : "none",
                 }}
               >
                 {/* First Card  */}
@@ -1032,7 +1057,7 @@ export default function Main() {
                 <li key={index} className="questions_list">
                   <div className="questions_header">
                     <span>{item.question}</span>
-                      <i
+                    <i
                       className={`fa-solid fa-chevron-down toggle ${openIndex === index ? "rotated" : ""}`}
                       onClick={() => setOpenIndex(openIndex === index ? null : index)}
                     ></i>
