@@ -738,7 +738,7 @@ const handlePrev = () => {
                     <i className="fa-solid fa-star" style={{ color: "rgb(255, 212, 59)" }}></i>
                     <i className="fa-solid fa-star" style={{ color: "rgb(255, 212, 59)" }}></i>
 
-                    <p className="reviews_comments">{t("reviews.comment_2").split("\n").map((line, index) => (
+                    <p className="reviews_comments">{t("reviews.comment_1").split("\n").map((line, index) => (
                       <React.Fragment key={index}>
                         {line}
                         <br />
