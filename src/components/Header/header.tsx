@@ -70,17 +70,6 @@ export default function Header() {
                             </li>
                         ))}
 
-                        {/* <li className="menu__list">
-                            {t("nav.services")}
-                            <i className="fa-solid fa-chevron-down"></i>
-                        </li>
-                        <li className="menu__list">
-                            {t("nav.delivery")}
-                            <i className="fa-solid fa-chevron-down"></i>
-                        </li>
-                        <li className="menu__list">{t("nav.for_marketplaces")}</li>
-                        <li className="menu__list">{t("nav.extension")}</li> */}
-
                         <div className="burger__extra">
                             <div className="burger__icons">
                                 <i className="fa-solid fa-phone"></i>
@@ -92,7 +81,6 @@ export default function Header() {
                             <button className="application">{t("nav.submit")}</button>
                         </div>
                     </ul>
-
 
                     {/* BURGER */}
                     <div
